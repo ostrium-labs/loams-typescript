@@ -1,5 +1,8 @@
 # Loams TypeScript examples
 
+These examples target **Loams SDK 0.1.2**. Installation and CI require the matching
+0.1.2 packages and release tags to be published.
+
 [Loams](https://loams.dev) is an open-source data engine on object storage: collections with vector, full-text and hybrid search, SQL over the same data, and a reactive layer (Live). These examples use the TypeScript SDK, [`@loams/client`](https://www.npmjs.com/package/@loams/client) and [`@loams/live`](https://www.npmjs.com/package/@loams/live).
 
 | Example | What it shows |
@@ -16,7 +19,7 @@ Needs Node 22.18 or newer (the examples run as TypeScript directly).
 npm install
 ```
 
-`@loams/client` and `@loams/live` are pinned to `0.1.0-preview.2`, the newest build on npm. The `0.1.0` packages have not been published to npm yet; when they are, bump the two versions in `package.json`. Until then the SDK source is in [`sdks/typescript`](https://github.com/ostrium-labs/loams/tree/main/sdks/typescript) of the main repo.
+`@loams/client` and `@loams/live` are pinned to `0.1.2`. Run `npm install` after publication to generate `package-lock.json`; commit the generated lockfile once the release resolves.
 
 ## Run against a local engine
 
@@ -40,7 +43,7 @@ Settings, all optional:
 
 ## What the SDK covers today
 
-`@loams/client` 0.1.0 has instance, auth, admin, Live (`loams.live`, `loams.tables`) and system modules. Collections, documents, search and SQL are not in its generated facade yet, so `quickstart` and `sql` call the same port's native JSON routes through a 40-line helper ([`shared/rest.ts`](shared/rest.ts)) and use the SDK client to connect. They will move to SDK modules when those exist.
+`@loams/client` provides namespaces, collections, documents, search, vector, graph, SQL and streams, alongside instance, Live and system modules. These examples retain the native JSON API helper in [`shared/rest.ts`](shared/rest.ts) to demonstrate those HTTP routes. For an app using SDK builders and collection handles directly, see the [SDK notes example](https://github.com/ostrium-labs/loams/blob/v0.1.2/sdks/typescript/examples/notes/main.ts).
 
 More: [loams.dev/docs](https://loams.dev/docs) and [docs/release/preview.md](https://github.com/ostrium-labs/loams/blob/main/docs/release/preview.md).
 

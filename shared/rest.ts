@@ -1,9 +1,7 @@
 // A tiny helper over the engine's native JSON API.
 //
-// `@loams/client` 0.1.0 exposes instance, auth, admin and Live (`loams.live`,
-// `loams.tables`); collections, documents, search and SQL are not in its facade
-// yet, so these examples reach them through the same port's native JSON routes
-// (see docs/api/route-map.md in ostrium-labs/loams).
+// These examples demonstrate native JSON routes alongside the SDK. The SDK
+// also offers app modules, builders, collection handles, SQL and streams.
 import { API_KEY, ENDPOINT, NAMESPACE } from './config.ts';
 
 export class RestError extends Error {

@@ -10,4 +10,4 @@ LOAMS_LIVE_TABLE=tickets LOAMS_LIVE_WRITE=1 npm run live-tail   # also insert th
 
 Live tables come from a deployed schema, and `_system:insert` fails with `table ... is not in the deployed schema` for a table that is not in it, so the default mode watches the catalog (`_system:tables`), which always exists. The write mode needs a table you have deployed with fields `title` and `status` (any validator that accepts them). The write path follows the SDK's types and the built-in function contract but was not exercised against a deployed table when this example was written.
 
-Live is unstable in 0.1.0: its wire contract may change.
+Live is unstable in 0.1.2: its wire contract may change.

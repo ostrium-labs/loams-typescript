@@ -12,8 +12,8 @@
     "live-tail": "node examples/live-tail/index.ts"
   },
   "dependencies": {
-    "@loams/client": "0.1.0-preview.2",
-    "@loams/live": "0.1.0-preview.2"
+    "@loams/client": "0.1.2",
+    "@loams/live": "0.1.2"
   },
   "devDependencies": {
     "@types/node": "24.10.1",
