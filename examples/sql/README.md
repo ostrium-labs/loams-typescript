@@ -1,6 +1,6 @@
 # sql
 
-Loads the same `kb` collection, then runs three read-only statements over `POST /v1/namespaces/{ns}/sql`: a `count(*)`, a filtered `SELECT`, and hybrid retrieval in SQL with `rrf(vector_search(...), text_search(...))`. DDL and writes are refused by the server.
+Runs parameterized, read-only SQL with `loams.sql.records` over the `kb` collection created by the quickstart. The examples include a bound tenant parameter and hybrid retrieval in SQL.
 
 ```sh
 npm run sql
