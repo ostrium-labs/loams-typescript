@@ -4,12 +4,15 @@
   "version": "0.0.0",
   "license": "Apache-2.0",
   "type": "module",
-  "engines": { "node": ">=22.18" },
+  "engines": {
+    "node": ">=22.18"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "quickstart": "node examples/quickstart/index.ts",
     "sql": "node examples/sql/index.ts",
-    "live-tail": "node examples/live-tail/index.ts"
+    "live-tail": "node examples/live-tail/index.ts",
+    "platform": "node examples/platform/index.ts"
   },
   "dependencies": {
     "@loams/client": "0.1.2",

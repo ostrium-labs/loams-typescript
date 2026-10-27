@@ -1,15 +1,15 @@
 # Loams TypeScript examples
 
-These examples target **Loams SDK 0.1.2**. Installation and CI require the matching
-0.1.2 packages and release tags to be published.
+These examples target the released **Loams SDK 0.1.2**.
 
 [Loams](https://loams.dev) is an open-source data engine on object storage: collections with vector, full-text and hybrid search, SQL over the same data, and a reactive layer (Live). These examples use the TypeScript SDK, [`@loams/client`](https://www.npmjs.com/package/@loams/client) and [`@loams/live`](https://www.npmjs.com/package/@loams/live).
 
 | Example | What it shows |
 |---|---|
-| [`examples/quickstart`](examples/quickstart) | connect, create a collection, upsert documents, hybrid search (vector + BM25 + filter) |
+| [`examples/quickstart`](examples/quickstart) | namespace and collection setup, documents, hybrid/vector search, SQL, streams, optional Graph |
 | [`examples/sql`](examples/sql) | SQL over a collection, including `rrf(vector_search(...), text_search(...))` |
 | [`examples/live-tail`](examples/live-tail) | a Live subscription with `loams.live.watch`, and writes with `loams.tables.mutate` |
+| [`examples/platform`](examples/platform) | opt-in, read-only auth, admin, audit and Live admin module calls |
 
 ## Install
 
@@ -19,7 +19,7 @@ Needs Node 22.18 or newer (the examples run as TypeScript directly).
 npm install
 ```
 
-`@loams/client` and `@loams/live` are pinned to `0.1.2`. Run `npm install` after publication to generate `package-lock.json`; commit the generated lockfile once the release resolves.
+`@loams/client` and `@loams/live` are pinned to `0.1.2`; `package-lock.json` locks the complete dependency tree.
 
 ## Run against a local engine
 
@@ -29,6 +29,7 @@ Start an engine from the [main repo](https://github.com/ostrium-labs/loams) (`ca
 npm run quickstart
 npm run sql
 npm run live-tail
+LOAMS_PLATFORM_EXAMPLE=1 npm run platform   # requires an authorized API key or token
 ```
 
 Settings, all optional:
@@ -43,7 +44,7 @@ Settings, all optional:
 
 ## What the SDK covers today
 
-`@loams/client` provides namespaces, collections, documents, search, vector, graph, SQL and streams, alongside instance, Live and system modules. These examples retain the native JSON API helper in [`shared/rest.ts`](shared/rest.ts) to demonstrate those HTTP routes. For an app using SDK builders and collection handles directly, see the [SDK notes example](https://github.com/ostrium-labs/loams/blob/v0.1.2/sdks/typescript/examples/notes/main.ts).
+`@loams/client` examples use the released high-level modules: namespace and collection setup, document handles, hybrid and vector search, SQL records, streams, instance discovery and system feature detection. Graph queries run only when Graph is advertised and a graph already exists. The opt-in platform example reads auth providers, projects, audit events and Live apps; it requires a credential with the relevant read permissions. House has no SDK module in 0.1.2. The separate Live-tail example remains opt-in and demonstrates `loams.live.watch` and `loams.tables.mutate`.
 
 More: [loams.dev/docs](https://loams.dev/docs) and [docs/release/preview.md](https://github.com/ostrium-labs/loams/blob/main/docs/release/preview.md).
 
